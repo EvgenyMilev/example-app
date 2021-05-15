@@ -1,0 +1,36 @@
+version: '3.4'
+
+services:
+  example-app:
+    container_name: example-app
+    image: golang:1.14
+    volumes:
+      - .:/go/src/github.com/example-app
+    working_dir: /go/src/github.com/example-app
+    command: sh -c 'go build -o /go/bin/server ./cmd/server || exit; server;'
+    ports:
+      - 9090:9090
+      - 8080:8080
+    depends_on:
+      - migrate-example-app-db
+
+  example-app-db:
+    container_name: example-app-db
+    image: postgres:10-alpine
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=example-app
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
+  migrate-example-app-db:
+    image: infoblox/migrate:latest
+    container_name: migrate-example-app-db
+    volumes:
+      - ./migrations:/migrations
+    depends_on:
+      - example-app-db
+    restart: on-failure:10
+    command: --path=/migrations/ --database.driver=postgres --database.address=example-app-db:5432 --database.name=example-app --database.user=postgres --database.password=postgres --database.ssl=disable up

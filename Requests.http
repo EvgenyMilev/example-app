@@ -1,0 +1,358 @@
+##############################  Test endpoints ###################################
+###
+GET http://localhost:8081/ping
+
+### Get swagger JSON
+GET http://localhost:8080/swagger/
+
+###Get veresion
+GET http://localhost:8080/example-app/v1/version
+
+###
+GET http://localhost:8081/ready
+
+###
+GET http://localhost:8081/healthz
+
+###
+#Get books
+POST http://localhost:8080/example-app/v1/books
+Content-Type: application/json
+
+{
+  "name": "The Three Musketeers7",
+  "price": 10.44,
+  "genre": 1,
+  "amount": 5
+}
+
+
+###
+#Get book
+GET http://localhost:8080/example-app/v1/books/1
+Content-Type: application/json
+
+###
+#Get books
+GET http://localhost:8080/example-app/v1/books
+Content-Type: application/json
+
+
+###Get books with filtering
+GET http://localhost:8080/example-app/v1/books?_filter=name=="The Three Musketeers"
+Content-Type: application/json
+
+###Get books with filtering
+GET http://localhost:8080/example-app/v1/books?_filter=genre==1
+Content-Type: application/json
+
+### Delete book
+DELETE http://localhost:8080/example-app/v1/books/3
+Content-Type: application/json
+
+
+
+
+
+###
+#Update account
+PUT http://localhost:8080/spamtest/v2/admin/seedList/69
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJlbWFpbCI6InN1cHBvcnRAZ2xvY2tzb2Z0LmNvbSIsImFwaWtleSI6ImRjODNiY2RmZWJjNzczZjg4MmFhMzkyMTUxMDk3Y2Y0NTk5MTMzYTgiLCJzbXRwX3VzZXJuYW1lIjoiaXBtMjMiLCJibG9ja2VkIjpmYWxzZSwidHlwZSI6Niwicm9sZXMiOlsic2NlIiwiYWRtaW4iXSwiYWxsb3dlZF9hY2NvdW50cyI6NTAsImNhY2hlX2V4cGlyYXRpb25fYXQiOjE5MjIzMTM2MDAsImV4cCI6MTkyMjMxMzYwMCwiZW1haWxDb25maXJtZWQiOnRydWUsInJpZ2h0cyI6InVzZXIifQ.AEsQx2SFWkkJ0_nR5VdQIYCzDcNNFoLAxi5-bm1kQw_LNo2512Ed9xQ74DBHZqDbMaLQLJ--1tShm1kqQ4np5Q
+
+{
+  "name": "msHeader",
+  "domain": " glocksoft.com1",
+  "server": "serv5",
+  "port": 31111,
+  "ssl": 1111,
+  "popAccount": true,
+  "login": "qwerty1",
+  "password": "2D6g1",
+  "providerGroupId": 111,
+  "accountGroupId": 111,
+  "accountType": "postini",
+  "accountAction": "seen",
+  "idle": false,
+  "reconnectTime": 11111,
+  "freeTestAllowed": false,
+  "active": false,
+  "autoStart": false,
+  "failCount": 111,
+  "note": "qwnote1",
+  "serverIndex": 111,
+  "inWorks": false,
+  "activeTh": 111,
+  "useOauth2": false,
+  "ipIndex": 111,
+  "timeToActivate": "2021-07-01T09:43:00.877Z",
+  "oauth2Token": {
+    "accessToken": "access1",
+    "tokenType": "tokentype1",
+    "refreshToken": "refresh1",
+    "expiry": "2022-07-01T09:43:00.877Z"
+  },
+  "folderList":  [ {
+    "imapFolder": "inbox1",
+    "inboxType": "typeSd31",
+    "lastUid": 111
+  },
+    {
+      "imapFolder": "mailinbox1",
+      "inboxType": "typeSd1",
+      "lastUid": 1111
+    }
+  ]
+}
+
+###
+#Delete account
+DELETE http://localhost:8080/spamtest/v2/admin/seedList/69
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJlbWFpbCI6InN1cHBvcnRAZ2xvY2tzb2Z0LmNvbSIsImFwaWtleSI6ImRjODNiY2RmZWJjNzczZjg4MmFhMzkyMTUxMDk3Y2Y0NTk5MTMzYTgiLCJzbXRwX3VzZXJuYW1lIjoiaXBtMjMiLCJibG9ja2VkIjpmYWxzZSwidHlwZSI6Niwicm9sZXMiOlsic2NlIiwiYWRtaW4iXSwiYWxsb3dlZF9hY2NvdW50cyI6NTAsImNhY2hlX2V4cGlyYXRpb25fYXQiOjE5MjIzMTM2MDAsImV4cCI6MTkyMjMxMzYwMCwiZW1haWxDb25maXJtZWQiOnRydWUsInJpZ2h0cyI6InVzZXIifQ.AEsQx2SFWkkJ0_nR5VdQIYCzDcNNFoLAxi5-bm1kQw_LNo2512Ed9xQ74DBHZqDbMaLQLJ--1tShm1kqQ4np5Q
+
+###
+#Add providers
+POST http://localhost:8080/spamtest/v2/admin/providers
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJlbWFpbCI6InN1cHBvcnRAZ2xvY2tzb2Z0LmNvbSIsImFwaWtleSI6ImRjODNiY2RmZWJjNzczZjg4MmFhMzkyMTUxMDk3Y2Y0NTk5MTMzYTgiLCJzbXRwX3VzZXJuYW1lIjoiaXBtMjMiLCJibG9ja2VkIjpmYWxzZSwidHlwZSI6Niwicm9sZXMiOlsic2NlIiwiYWRtaW4iXSwiYWxsb3dlZF9hY2NvdW50cyI6NTAsImNhY2hlX2V4cGlyYXRpb25fYXQiOjE5MjIzMTM2MDAsImV4cCI6MTkyMjMxMzYwMCwiZW1haWxDb25maXJtZWQiOnRydWUsInJpZ2h0cyI6InVzZXIifQ.AEsQx2SFWkkJ0_nR5VdQIYCzDcNNFoLAxi5-bm1kQw_LNo2512Ed9xQ74DBHZqDbMaLQLJ--1tShm1kqQ4np5Q
+
+{
+  "name": "SS31-online.de"
+}
+
+###
+#Get all providers
+GET http://localhost:8080/spamtest/v2/admin/providers
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJlbWFpbCI6InN1cHBvcnRAZ2xvY2tzb2Z0LmNvbSIsImFwaWtleSI6ImRjODNiY2RmZWJjNzczZjg4MmFhMzkyMTUxMDk3Y2Y0NTk5MTMzYTgiLCJzbXRwX3VzZXJuYW1lIjoiaXBtMjMiLCJibG9ja2VkIjpmYWxzZSwidHlwZSI6Niwicm9sZXMiOlsic2NlIiwiYWRtaW4iXSwiYWxsb3dlZF9hY2NvdW50cyI6NTAsImNhY2hlX2V4cGlyYXRpb25fYXQiOjE5MjIzMTM2MDAsImV4cCI6MTkyMjMxMzYwMCwiZW1haWxDb25maXJtZWQiOnRydWUsInJpZ2h0cyI6InVzZXIifQ.AEsQx2SFWkkJ0_nR5VdQIYCzDcNNFoLAxi5-bm1kQw_LNo2512Ed9xQ74DBHZqDbMaLQLJ--1tShm1kqQ4np5Q
+
+###
+#Update providers
+PUT http://localhost:8080/spamtest/v2/admin/providers/70
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJlbWFpbCI6InN1cHBvcnRAZ2xvY2tzb2Z0LmNvbSIsImFwaWtleSI6ImRjODNiY2RmZWJjNzczZjg4MmFhMzkyMTUxMDk3Y2Y0NTk5MTMzYTgiLCJzbXRwX3VzZXJuYW1lIjoiaXBtMjMiLCJibG9ja2VkIjpmYWxzZSwidHlwZSI6Niwicm9sZXMiOlsic2NlIiwiYWRtaW4iXSwiYWxsb3dlZF9hY2NvdW50cyI6NTAsImNhY2hlX2V4cGlyYXRpb25fYXQiOjE5MjIzMTM2MDAsImV4cCI6MTkyMjMxMzYwMCwiZW1haWxDb25maXJtZWQiOnRydWUsInJpZ2h0cyI6InVzZXIifQ.AEsQx2SFWkkJ0_nR5VdQIYCzDcNNFoLAxi5-bm1kQw_LNo2512Ed9xQ74DBHZqDbMaLQLJ--1tShm1kqQ4np5Q
+
+{
+  "name": "SS32-online.de"
+}
+
+###
+#Delete providers
+DELETE http://localhost:8080/spamtest/v2/admin/providers/57,58
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJlbWFpbCI6InN1cHBvcnRAZ2xvY2tzb2Z0LmNvbSIsImFwaWtleSI6ImRjODNiY2RmZWJjNzczZjg4MmFhMzkyMTUxMDk3Y2Y0NTk5MTMzYTgiLCJzbXRwX3VzZXJuYW1lIjoiaXBtMjMiLCJibG9ja2VkIjpmYWxzZSwidHlwZSI6Niwicm9sZXMiOlsic2NlIiwiYWRtaW4iXSwiYWxsb3dlZF9hY2NvdW50cyI6NTAsImNhY2hlX2V4cGlyYXRpb25fYXQiOjE5MjIzMTM2MDAsImV4cCI6MTkyMjMxMzYwMCwiZW1haWxDb25maXJtZWQiOnRydWUsInJpZ2h0cyI6InVzZXIifQ.AEsQx2SFWkkJ0_nR5VdQIYCzDcNNFoLAxi5-bm1kQw_LNo2512Ed9xQ74DBHZqDbMaLQLJ--1tShm1kqQ4np5Q
+
+
+###
+#Add account groups
+POST http://localhost:8080/spamtest/v2/admin/accountGroups
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJlbWFpbCI6InN1cHBvcnRAZ2xvY2tzb2Z0LmNvbSIsImFwaWtleSI6ImRjODNiY2RmZWJjNzczZjg4MmFhMzkyMTUxMDk3Y2Y0NTk5MTMzYTgiLCJzbXRwX3VzZXJuYW1lIjoiaXBtMjMiLCJibG9ja2VkIjpmYWxzZSwidHlwZSI6Niwicm9sZXMiOlsic2NlIiwiYWRtaW4iXSwiYWxsb3dlZF9hY2NvdW50cyI6NTAsImNhY2hlX2V4cGlyYXRpb25fYXQiOjE5MjIzMTM2MDAsImV4cCI6MTkyMjMxMzYwMCwiZW1haWxDb25maXJtZWQiOnRydWUsInJpZ2h0cyI6InVzZXIifQ.AEsQx2SFWkkJ0_nR5VdQIYCzDcNNFoLAxi5-bm1kQw_LNo2512Ed9xQ74DBHZqDbMaLQLJ--1tShm1kqQ4np5Q
+
+{
+  "name": "Custom1"
+}
+
+###
+#Get all account groups
+GET http://localhost:8080/spamtest/v2/admin/accountGroups
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJlbWFpbCI6InN1cHBvcnRAZ2xvY2tzb2Z0LmNvbSIsImFwaWtleSI6ImRjODNiY2RmZWJjNzczZjg4MmFhMzkyMTUxMDk3Y2Y0NTk5MTMzYTgiLCJzbXRwX3VzZXJuYW1lIjoiaXBtMjMiLCJibG9ja2VkIjpmYWxzZSwidHlwZSI6Niwicm9sZXMiOlsic2NlIiwiYWRtaW4iXSwiYWxsb3dlZF9hY2NvdW50cyI6NTAsImNhY2hlX2V4cGlyYXRpb25fYXQiOjE5MjIzMTM2MDAsImV4cCI6MTkyMjMxMzYwMCwiZW1haWxDb25maXJtZWQiOnRydWUsInJpZ2h0cyI6InVzZXIifQ.AEsQx2SFWkkJ0_nR5VdQIYCzDcNNFoLAxi5-bm1kQw_LNo2512Ed9xQ74DBHZqDbMaLQLJ--1tShm1kqQ4np5Q
+
+
+###
+#Update account groups
+PUT http://localhost:8080/spamtest/v2/admin/accountGroups/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJlbWFpbCI6InN1cHBvcnRAZ2xvY2tzb2Z0LmNvbSIsImFwaWtleSI6ImRjODNiY2RmZWJjNzczZjg4MmFhMzkyMTUxMDk3Y2Y0NTk5MTMzYTgiLCJzbXRwX3VzZXJuYW1lIjoiaXBtMjMiLCJibG9ja2VkIjpmYWxzZSwidHlwZSI6Niwicm9sZXMiOlsic2NlIiwiYWRtaW4iXSwiYWxsb3dlZF9hY2NvdW50cyI6NTAsImNhY2hlX2V4cGlyYXRpb25fYXQiOjE5MjIzMTM2MDAsImV4cCI6MTkyMjMxMzYwMCwiZW1haWxDb25maXJtZWQiOnRydWUsInJpZ2h0cyI6InVzZXIifQ.AEsQx2SFWkkJ0_nR5VdQIYCzDcNNFoLAxi5-bm1kQw_LNo2512Ed9xQ74DBHZqDbMaLQLJ--1tShm1kqQ4np5Q
+
+{
+  "name": "64TT"
+}
+
+###
+#Get IMAP folders
+GET http://localhost:8080/spamtest/v2/admin/imapFolders?server=mail.userflowhq.com&port=993&username=alex@userflowhq.com&password=vfndttdbx70.
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJlbWFpbCI6InN1cHBvcnRAZ2xvY2tzb2Z0LmNvbSIsImFwaWtleSI6ImRjODNiY2RmZWJjNzczZjg4MmFhMzkyMTUxMDk3Y2Y0NTk5MTMzYTgiLCJzbXRwX3VzZXJuYW1lIjoiaXBtMjMiLCJibG9ja2VkIjpmYWxzZSwidHlwZSI6Niwicm9sZXMiOlsic2NlIiwiYWRtaW4iXSwiYWxsb3dlZF9hY2NvdW50cyI6NTAsImNhY2hlX2V4cGlyYXRpb25fYXQiOjE5MjIzMTM2MDAsImV4cCI6MTkyMjMxMzYwMCwiZW1haWxDb25maXJtZWQiOnRydWUsInJpZ2h0cyI6InVzZXIifQ.AEsQx2SFWkkJ0_nR5VdQIYCzDcNNFoLAxi5-bm1kQw_LNo2512Ed9xQ74DBHZqDbMaLQLJ--1tShm1kqQ4np5Q
+
+###
+#Copy test
+POST http://localhost:8080/spamtest/v2/admin/copyTest
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJlbWFpbCI6InN1cHBvcnRAZ2xvY2tzb2Z0LmNvbSIsImFwaWtleSI6ImRjODNiY2RmZWJjNzczZjg4MmFhMzkyMTUxMDk3Y2Y0NTk5MTMzYTgiLCJzbXRwX3VzZXJuYW1lIjoiaXBtMjMiLCJibG9ja2VkIjpmYWxzZSwidHlwZSI6Niwicm9sZXMiOlsic2NlIiwiYWRtaW4iXSwiYWxsb3dlZF9hY2NvdW50cyI6NTAsImNhY2hlX2V4cGlyYXRpb25fYXQiOjE5MjIzMTM2MDAsImV4cCI6MTkyMjMxMzYwMCwiZW1haWxDb25maXJtZWQiOnRydWUsInJpZ2h0cyI6InVzZXIifQ.AEsQx2SFWkkJ0_nR5VdQIYCzDcNNFoLAxi5-bm1kQw_LNo2512Ed9xQ74DBHZqDbMaLQLJ--1tShm1kqQ4np5Q
+
+{
+  "testId": "2020-11-26-09:54:20:021t",
+  "userId": "2222"
+}
+
+###
+#Change test ownership
+POST http://localhost:8080/spamtest/v2/admin/changeTestOwnership
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJlbWFpbCI6InN1cHBvcnRAZ2xvY2tzb2Z0LmNvbSIsImFwaWtleSI6ImRjODNiY2RmZWJjNzczZjg4MmFhMzkyMTUxMDk3Y2Y0NTk5MTMzYTgiLCJzbXRwX3VzZXJuYW1lIjoiaXBtMjMiLCJibG9ja2VkIjpmYWxzZSwidHlwZSI6Niwicm9sZXMiOlsic2NlIiwiYWRtaW4iXSwiYWxsb3dlZF9hY2NvdW50cyI6NTAsImNhY2hlX2V4cGlyYXRpb25fYXQiOjE5MjIzMTM2MDAsImV4cCI6MTkyMjMxMzYwMCwiZW1haWxDb25maXJtZWQiOnRydWUsInJpZ2h0cyI6InVzZXIifQ.AEsQx2SFWkkJ0_nR5VdQIYCzDcNNFoLAxi5-bm1kQw_LNo2512Ed9xQ74DBHZqDbMaLQLJ--1tShm1kqQ4np5Q
+
+{
+  "apiKey": "0a30b6aca7a5c59b74ff31406446aa29ca189d7f",
+  "externalUserId": "st-3-56xbkc3dub"
+}
+
+###
+#Get providers
+GET http://localhost:8080/spamtest/v2/providers
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJlbWFpbCI6InN1cHBvcnRAZ2xvY2tzb2Z0LmNvbSIsImFwaWtleSI6ImRjODNiY2RmZWJjNzczZjg4MmFhMzkyMTUxMDk3Y2Y0NTk5MTMzYTgiLCJzbXRwX3VzZXJuYW1lIjoiaXBtMjMiLCJibG9ja2VkIjpmYWxzZSwidHlwZSI6Niwicm9sZXMiOlsic2NlIiwiZXJ0Il0sImFsbG93ZWRfYWNjb3VudHMiOjUwLCJjYWNoZV9leHBpcmF0aW9uX2F0IjoxOTIyMzEzNjAwLCJleHAiOjE5MjIzMTM2MDAsImVtYWlsQ29uZmlybWVkIjp0cnVlLCJyaWdodHMiOiJ1c2VyIn0.0nFx0ZxuXKmGDFoNhX9N2CJcIR3zSBvh9kvqdjzkAm_sY9jgZFE0NR8J8XtesC_SciS90Mqt_1e6zmc5LMbNxg
+
+###
+#Create manual test
+POST http://localhost:8080/spamtest/v2/manualTest
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJlbWFpbCI6InN1cHBvcnRAZ2xvY2tzb2Z0LmNvbSIsImFwaWtleSI6ImRjODNiY2RmZWJjNzczZjg4MmFhMzkyMTUxMDk3Y2Y0NTk5MTMzYTgiLCJzbXRwX3VzZXJuYW1lIjoiaXBtMjMiLCJibG9ja2VkIjpmYWxzZSwidHlwZSI6Niwicm9sZXMiOlsic2NlIiwiZXJ0Il0sImFsbG93ZWRfYWNjb3VudHMiOjUwLCJjYWNoZV9leHBpcmF0aW9uX2F0IjoxOTIyMzEzNjAwLCJleHAiOjE5MjIzMTM2MDAsImVtYWlsQ29uZmlybWVkIjp0cnVlLCJyaWdodHMiOiJ1c2VyIn0.0nFx0ZxuXKmGDFoNhX9N2CJcIR3zSBvh9kvqdjzkAm_sY9jgZFE0NR8J8XtesC_SciS90Mqt_1e6zmc5LMbNxg
+
+{
+  "seedIds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "groupId": [
+    2
+  ],
+  "subject": "Tou",
+  "mailFrom": "\"Alex Markov\" <digdiver@gmail.com>",
+  "sendResult": true,
+  "meta": "Meta",
+  "note": "Note",
+  "externalUserId": "567",
+  "tags": [
+  "tags.com",
+    "tagger.com"
+  ],
+  "waitTime": "20m"
+}
+
+###
+#Delete test
+DELETE http://localhost:8080/spamtest/v2/test?id=2021-01-25-11:46:13:903t,2021-01-25-11:46:13:907t
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJlbWFpbCI6InN1cHBvcnRAZ2xvY2tzb2Z0LmNvbSIsImFwaWtleSI6ImRjODNiY2RmZWJjNzczZjg4MmFhMzkyMTUxMDk3Y2Y0NTk5MTMzYTgiLCJzbXRwX3VzZXJuYW1lIjoiaXBtMjMiLCJibG9ja2VkIjpmYWxzZSwidHlwZSI6Niwicm9sZXMiOlsic2NlIiwiZXJ0Il0sImFsbG93ZWRfYWNjb3VudHMiOjUwLCJjYWNoZV9leHBpcmF0aW9uX2F0IjoxOTIyMzEzNjAwLCJleHAiOjE5MjIzMTM2MDAsImVtYWlsQ29uZmlybWVkIjp0cnVlLCJyaWdodHMiOiJ1c2VyIn0.0nFx0ZxuXKmGDFoNhX9N2CJcIR3zSBvh9kvqdjzkAm_sY9jgZFE0NR8J8XtesC_SciS90Mqt_1e6zmc5LMbNxg
+
+
+###
+#Update note
+PUT http://localhost:8080/spamtest/v2/test?id=2021-01-25-11:46:13:905t
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxNTAsImVtYWlsIjoic3VwcG9ydEBnbG9ja3NvZnQuY29tIiwiYXBpa2V5IjoiZGM4M2JjZGZlYmM3NzNmODgyYWEzOTIxNTEwOTdjZjQ1OTkxMzNhOCIsInNtdHBfdXNlcm5hbWUiOiJpcG0yMyIsImJsb2NrZWQiOmZhbHNlLCJ0eXBlIjo2LCJyb2xlcyI6WyJzY2UiLCJhZG1pbiJdLCJhbGxvd2VkX2FjY291bnRzIjo1MCwiY2FjaGVfZXhwaXJhdGlvbl9hdCI6MTkyMjMxMzYwMCwiZXhwIjoxOTIyMzEzNjAwLCJlbWFpbENvbmZpcm1lZCI6dHJ1ZSwicmlnaHRzIjoidXNlciJ9.Hcqo67YeICrQvZmS6NNZ3pGWWkjIOJre0F338D7IquNkkmzUMgLuGi6DnrmF2BLws8nFg-6BIbAO8V0wECCizA
+
+{
+  "note": "Update note"
+}
+
+###
+#Get test item (GetTestResult)
+GET http://localhost:8080/spamtest/v2/test?id=2021-01-25-11:46:13:903t
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJlbWFpbCI6InN1cHBvcnRAZ2xvY2tzb2Z0LmNvbSIsImFwaWtleSI6ImRjODNiY2RmZWJjNzczZjg4MmFhMzkyMTUxMDk3Y2Y0NTk5MTMzYTgiLCJzbXRwX3VzZXJuYW1lIjoiaXBtMjMiLCJibG9ja2VkIjpmYWxzZSwidHlwZSI6Niwicm9sZXMiOlsic2NlIiwiZXJ0Il0sImFsbG93ZWRfYWNjb3VudHMiOjUwLCJjYWNoZV9leHBpcmF0aW9uX2F0IjoxOTIyMzEzNjAwLCJleHAiOjE5MjIzMTM2MDAsImVtYWlsQ29uZmlybWVkIjp0cnVlLCJyaWdodHMiOiJ1c2VyIn0.0nFx0ZxuXKmGDFoNhX9N2CJcIR3zSBvh9kvqdjzkAm_sY9jgZFE0NR8J8XtesC_SciS90Mqt_1e6zmc5LMbNxg
+
+###
+#Get free tests
+GET http://localhost:8080/spamtest/v2/freeTests/st-3-76tfewydhdj
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJlbWFpbCI6InN1cHBvcnRAZ2xvY2tzb2Z0LmNvbSIsImFwaWtleSI6ImRjODNiY2RmZWJjNzczZjg4MmFhMzkyMTUxMDk3Y2Y0NTk5MTMzYTgiLCJzbXRwX3VzZXJuYW1lIjoiaXBtMjMiLCJibG9ja2VkIjpmYWxzZSwidHlwZSI6Niwicm9sZXMiOlsic2NlIiwiYWRtaW4iXSwiYWxsb3dlZF9hY2NvdW50cyI6NTAsImNhY2hlX2V4cGlyYXRpb25fYXQiOjE5MjIzMTM2MDAsImV4cCI6MTkyMjMxMzYwMCwiZW1haWxDb25maXJtZWQiOnRydWUsInJpZ2h0cyI6InVzZXIifQ.AEsQx2SFWkkJ0_nR5VdQIYCzDcNNFoLAxi5-bm1kQw_LNo2512Ed9xQ74DBHZqDbMaLQLJ--1tShm1kqQ4np5Q
+
+###
+#Get test list for auto test  (GetTestList)
+GET http://localhost:8080/spamtest/v2/autotest/5f86a7ab1c75825b2222d5fd/test
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJlbWFpbCI6InN1cHBvcnRAZ2xvY2tzb2Z0LmNvbSIsImFwaWtleSI6ImRjODNiY2RmZWJjNzczZjg4MmFhMzkyMTUxMDk3Y2Y0NTk5MTMzYTgiLCJzbXRwX3VzZXJuYW1lIjoiaXBtMjMiLCJibG9ja2VkIjpmYWxzZSwidHlwZSI6Niwicm9sZXMiOlsic2NlIiwiYWRtaW4iXSwiYWxsb3dlZF9hY2NvdW50cyI6NTAsImNhY2hlX2V4cGlyYXRpb25fYXQiOjE5MjIzMTM2MDAsImV4cCI6MTkyMjMxMzYwMCwiZW1haWxDb25maXJtZWQiOnRydWUsInJpZ2h0cyI6InVzZXIifQ.AEsQx2SFWkkJ0_nR5VdQIYCzDcNNFoLAxi5-bm1kQw_LNo2512Ed9xQ74DBHZqDbMaLQLJ--1tShm1kqQ4np5Q
+
+###
+#Get email header
+GET http://localhost:8080/spamtest/v2/test/2020-08-26-11:05:27:473t/headers
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJlbWFpbCI6InN1cHBvcnRAZ2xvY2tzb2Z0LmNvbSIsImFwaWtleSI6ImRjODNiY2RmZWJjNzczZjg4MmFhMzkyMTUxMDk3Y2Y0NTk5MTMzYTgiLCJzbXRwX3VzZXJuYW1lIjoiaXBtMjMiLCJibG9ja2VkIjpmYWxzZSwidHlwZSI6Niwicm9sZXMiOlsic2NlIiwiYWRtaW4iXSwiYWxsb3dlZF9hY2NvdW50cyI6NTAsImNhY2hlX2V4cGlyYXRpb25fYXQiOjE5MjIzMTM2MDAsImV4cCI6MTkyMjMxMzYwMCwiZW1haWxDb25maXJtZWQiOnRydWUsInJpZ2h0cyI6InVzZXIifQ.AEsQx2SFWkkJ0_nR5VdQIYCzDcNNFoLAxi5-bm1kQw_LNo2512Ed9xQ74DBHZqDbMaLQLJ--1tShm1kqQ4np5Q
+
+###
+#Get email info
+GET http://localhost:8080/spamtest/v2/test/2020-11-10-19:07:18:520t/emailInfo
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJlbWFpbCI6InN1cHBvcnRAZ2xvY2tzb2Z0LmNvbSIsImFwaWtleSI6ImRjODNiY2RmZWJjNzczZjg4MmFhMzkyMTUxMDk3Y2Y0NTk5MTMzYTgiLCJzbXRwX3VzZXJuYW1lIjoiaXBtMjMiLCJibG9ja2VkIjpmYWxzZSwidHlwZSI6Niwicm9sZXMiOlsic2NlIiwiYWRtaW4iXSwiYWxsb3dlZF9hY2NvdW50cyI6NTAsImNhY2hlX2V4cGlyYXRpb25fYXQiOjE5MjIzMTM2MDAsImV4cCI6MTkyMjMxMzYwMCwiZW1haWxDb25maXJtZWQiOnRydWUsInJpZ2h0cyI6InVzZXIifQ.AEsQx2SFWkkJ0_nR5VdQIYCzDcNNFoLAxi5-bm1kQw_LNo2512Ed9xQ74DBHZqDbMaLQLJ--1tShm1kqQ4np5Q
+
+
+###spamtest
+#Get seed list
+GET http://localhost:8080/spamtest/v2/test/2021-01-25-11:46:13:905t/seedList
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMDAsImVtYWlsIjoic3VwcG9ydEBnbG9ja3NvZnQuY29tIiwiYXBpa2V5IjoiZGM4M2JjZGZlYmM3NzNmODgyYWEzOTIxNTEwOTdjZjQ1OTkxMzNhOCIsInNtdHBfdXNlcm5hbWUiOiJpcG0yMyIsImJsb2NrZWQiOmZhbHNlLCJ0eXBlIjo2LCJyb2xlcyI6WyJzY2UiLCJhZG1pbiJdLCJhbGxvd2VkX2FjY291bnRzIjo1MCwiY2FjaGVfZXhwaXJhdGlvbl9hdCI6MTkyMjMxMzYwMCwiZXhwIjoxOTIyMzEzNjAwLCJlbWFpbENvbmZpcm1lZCI6dHJ1ZSwicmlnaHRzIjoidXNlciJ9.9gZn62fVw6q2hBQSQLEnIN2gsa8fZVTyFenmZgvU2wXsjNp4538urvLj24zoZ0ndLyyjkkY3eAQ4IQ6CTydygA
+###
+#Get auto test list
+GET http://localhost:8080/spamtest/v2/autoTest
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMDAsImVtYWlsIjoic3VwcG9ydEBnbG9ja3NvZnQuY29tIiwiYXBpa2V5IjoiZGM4M2JjZGZlYmM3NzNmODgyYWEzOTIxNTEwOTdjZjQ1OTkxMzNhOCIsInNtdHBfdXNlcm5hbWUiOiJpcG0yMyIsImJsb2NrZWQiOmZhbHNlLCJ0eXBlIjo2LCJyb2xlcyI6WyJzY2UiLCJhZG1pbiJdLCJhbGxvd2VkX2FjY291bnRzIjo1MCwiY2FjaGVfZXhwaXJhdGlvbl9hdCI6MTkyMjMxMzYwMCwiZXhwIjoxOTIyMzEzNjAwLCJlbWFpbENvbmZpcm1lZCI6dHJ1ZSwicmlnaHRzIjoidXNlciJ9.9gZn62fVw6q2hBQSQLEnIN2gsa8fZVTyFenmZgvU2wXsjNp4538urvLj24zoZ0ndLyyjkkY3eAQ4IQ6CTydygA
+
+###
+#Get test results
+GET http://localhost:8080/spamtest/v2/testsResults?id=2021-01-25-11:46:13:903t,2021-01-25-11:46:13:904t,2021-01-25-11:46:13:905t,2020-08-21-11:01:51:315t,2020-08-13-17:07:30:307t&page=2&limit=1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJlbWFpbCI6InN1cHBvcnRAZ2xvY2tzb2Z0LmNvbSIsImFwaWtleSI6ImRjODNiY2RmZWJjNzczZjg4MmFhMzkyMTUxMDk3Y2Y0NTk5MTMzYTgiLCJzbXRwX3VzZXJuYW1lIjoiaXBtMjMiLCJibG9ja2VkIjpmYWxzZSwidHlwZSI6Niwicm9sZXMiOlsic2NlIiwiYWRtaW4iXSwiYWxsb3dlZF9hY2NvdW50cyI6NTAsImNhY2hlX2V4cGlyYXRpb25fYXQiOjE5MjIzMTM2MDAsImV4cCI6MTkyMjMxMzYwMCwiZW1haWxDb25maXJtZWQiOnRydWUsInJpZ2h0cyI6InVzZXIifQ.AEsQx2SFWkkJ0_nR5VdQIYCzDcNNFoLAxi5-bm1kQw_LNo2512Ed9xQ74DBHZqDbMaLQLJ--1tShm1kqQ4np5Q
+
+###
+#Edit auto test
+PUT http://localhost:8080/spamtest/v2/autoTest/5ffe82352af2474ac61cbc9d
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJlbWFpbCI6InN1cHBvcnRAZ2xvY2tzb2Z0LmNvbSIsImFwaWtleSI6ImRjODNiY2RmZWJjNzczZjg4MmFhMzkyMTUxMDk3Y2Y0NTk5MTMzYTgiLCJzbXRwX3VzZXJuYW1lIjoiaXBtMjMiLCJibG9ja2VkIjpmYWxzZSwidHlwZSI6Niwicm9sZXMiOlsic2NlIiwiYWRtaW4iXSwiYWxsb3dlZF9hY2NvdW50cyI6NTAsImNhY2hlX2V4cGlyYXRpb25fYXQiOjE5MjIzMTM2MDAsImV4cCI6MTkyMjMxMzYwMCwiZW1haWxDb25maXJtZWQiOnRydWUsInJpZ2h0cyI6InVzZXIifQ.AEsQx2SFWkkJ0_nR5VdQIYCzDcNNFoLAxi5-bm1kQw_LNo2512Ed9xQ74DBHZqDbMaLQLJ--1tShm1kqQ4np5Q
+
+{
+  "active": true,
+  "monitorTime": 1,
+  "waitTime": "2m",
+  "isps": [
+    70,
+    71
+  ],
+  "fresh": true,
+  "sendAlert": false,
+  "sendInterval": "2m"
+}
+
+###
+#Delete auto test
+DELETE http://localhost:8080/spamtest/v2/autoTest/5f8ff6e8751ad27743291eae, 5f8ff703751ad27743291eb0
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJlbWFpbCI6InN1cHBvcnRAZ2xvY2tzb2Z0LmNvbSIsImFwaWtleSI6ImRjODNiY2RmZWJjNzczZjg4MmFhMzkyMTUxMDk3Y2Y0NTk5MTMzYTgiLCJzbXRwX3VzZXJuYW1lIjoiaXBtMjMiLCJibG9ja2VkIjp0cnVlLCJ0eXBlIjo2LCJyb2xlcyI6WyJzY2UiLCJlcnQiXSwiYWxsb3dlZF9hY2NvdW50cyI6NTAsImNhY2hlX2V4cGlyYXRpb25fYXQiOjE5MjIzMTM2MDAsImV4cCI6MTkyMjMxMzYwMCwiZW1haWxDb25maXJtZWQiOnRydWUsInJpZ2h0cyI6InVzZXIifQ.6SE-qs6lIaYLA0rrLxsxHuarUU_8Femf2Wy68Q94Hq1LeD7UMmsfFUOSQU-S9-dhGFKxzDZ9oRmABDbbmW8bWw
+
+###
+# Get Email in html format
+GET http://localhost:8080/email?id=5fa84590a7371134b4cdc014
+Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJlbWFpbCI6InN1cHBvcnRAZ2xvY2tzb2Z0LmNvbSIsImFwaWtleSI6ImRjODNiY2RmZWJjNzczZjg4MmFhMzkyMTUxMDk3Y2Y0NTk5MTMzYTgiLCJzbXRwX3VzZXJuYW1lIjoiaXBtMjMiLCJibG9ja2VkIjpmYWxzZSwidHlwZSI6Niwicm9sZXMiOlsic2NlIiwiYWRtaW4iXSwiYWxsb3dlZF9hY2NvdW50cyI6NTAsImNhY2hlX2V4cGlyYXRpb25fYXQiOjE5MjIzMTM2MDAsImV4cCI6MTkyMjMxMzYwMCwiZW1haWxDb25maXJtZWQiOnRydWUsInJpZ2h0cyI6InVzZXIifQ.AEsQx2SFWkkJ0_nR5VdQIYCzDcNNFoLAxi5-bm1kQw_LNo2512Ed9xQ74DBHZqDbMaLQLJ--1tShm1kqQ4np5Q
+
+###
+GET http://0.0.0.0:8080/images/5fa84590a7371134b4cdc014/1
+#Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJlbWFpbCI6InN1cHBvcnRAZ2xvY2tzb2Z0LmNvbSIsImFwaWtleSI6ImRjODNiY2RmZWJjNzczZjg4MmFhMzkyMTUxMDk3Y2Y0NTk5MTMzYTgiLCJzbXRwX3VzZXJuYW1lIjoiaXBtMjMiLCJibG9ja2VkIjpmYWxzZSwidHlwZSI6Niwicm9sZXMiOlsic2NlIiwiYWRtaW4iXSwiYWxsb3dlZF9hY2NvdW50cyI6NTAsImNhY2hlX2V4cGlyYXRpb25fYXQiOjE5MjIzMTM2MDAsImV4cCI6MTkyMjMxMzYwMCwiZW1haWxDb25maXJtZWQiOnRydWUsInJpZ2h0cyI6InVzZXIifQ.AEsQx2SFWkkJ0_nR5VdQIYCzDcNNFoLAxi5-bm1kQw_LNo2512Ed9xQ74DBHZqDbMaLQLJ--1tShm1kqQ4np5Q
+
+
+###
+###
+# Get raw Email
+GET http://localhost:8080/rawEmail/txt.txt
+Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJlbWFpbCI6InN1cHBvcnRAZ2xvY2tzb2Z0LmNvbSIsImFwaWtleSI6ImRjODNiY2RmZWJjNzczZjg4MmFhMzkyMTUxMDk3Y2Y0NTk5MTMzYTgiLCJzbXRwX3VzZXJuYW1lIjoiaXBtMjMiLCJibG9ja2VkIjpmYWxzZSwidHlwZSI6Niwicm9sZXMiOlsic2NlIiwiYWRtaW4iXSwiYWxsb3dlZF9hY2NvdW50cyI6NTAsImNhY2hlX2V4cGlyYXRpb25fYXQiOjE5MjIzMTM2MDAsImV4cCI6MTkyMjMxMzYwMCwiZW1haWxDb25maXJtZWQiOnRydWUsInJpZ2h0cyI6InVzZXIifQ.AEsQx2SFWkkJ0_nR5VdQIYCzDcNNFoLAxi5-bm1kQw_LNo2512Ed9xQ74DBHZqDbMaLQLJ--1tShm1kqQ4np5Q
+
+###
+#Check smtp settings
+POST http://localhost:8080/spamtest/v2/checkSmtp
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJlbWFpbCI6InN1cHBvcnRAZ2xvY2tzb2Z0LmNvbSIsImFwaWtleSI6ImRjODNiY2RmZWJjNzczZjg4MmFhMzkyMTUxMDk3Y2Y0NTk5MTMzYTgiLCJzbXRwX3VzZXJuYW1lIjoiaXBtMjMiLCJibG9ja2VkIjpmYWxzZSwidHlwZSI6Niwicm9sZXMiOlsic2NlIiwiYWRtaW4iXSwiYWxsb3dlZF9hY2NvdW50cyI6NTAsImNhY2hlX2V4cGlyYXRpb25fYXQiOjE5MjIzMTM2MDAsImV4cCI6MTkyMjMxMzYwMCwiZW1haWxDb25maXJtZWQiOnRydWUsInJpZ2h0cyI6InVzZXIifQ.AEsQx2SFWkkJ0_nR5VdQIYCzDcNNFoLAxi5-bm1kQw_LNo2512Ed9xQ74DBHZqDbMaLQLJ--1tShm1kqQ4np5Q
+
+{
+  "smtpServer": "smtp.gmail.com",
+  "port": 465,
+  "userName": "a107870k4@gmail.com",
+  "password": "pqzkyjblvvbmpvnd"
+}
+
