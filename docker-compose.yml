@@ -13,6 +13,8 @@ services:
       - 8080:8080
     depends_on:
       - migrate-example-app-db
+    environment:
+      - DATABASE_ADDRESS=example-app-db
 
   example-app-db:
     container_name: example-app-db
@@ -21,7 +23,7 @@ services:
     ports:
       - 5432:5432
     environment:
-      - POSTGRES_DB=example-app
+      - POSTGRES_DB=example_app
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
 
@@ -29,8 +31,8 @@ services:
     image: infoblox/migrate:latest
     container_name: migrate-example-app-db
     volumes:
-      - ./migrations:/migrations
+      - ./db/migrations:/migrations
     depends_on:
       - example-app-db
     restart: on-failure:10
-    command: --path=/migrations/ --database.driver=postgres --database.address=example-app-db:5432 --database.name=example-app --database.user=postgres --database.password=postgres --database.ssl=disable up
+    command: --path=/migrations/ --database.driver=postgres --database.address=example-app-db:5432 --database.name=example_app --database.user=postgres --database.password=postgres --database.ssl=disable up

@@ -31,7 +31,7 @@ message Book {
   string name = 2[(atlas_validate.field).required = create];
   float price = 3[(atlas_validate.field).required = create];
   int32 genre = 4 [(gorm.field) = {reference_of: "Genre", tag: {type: "integer"}}, (atlas_validate.field).required = create];
-  int32 amount =5[(atlas_validate.field) = {deny: [create]}];
+  int32 amount =5[(atlas_validate.field).required = create];
 }
 
 message VersionResponse {

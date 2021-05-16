@@ -9,6 +9,8 @@ import (
 	query1 "github.com/infobloxopen/atlas-app-toolkit/query"
 	errors1 "github.com/infobloxopen/protoc-gen-gorm/errors"
 	"github.com/jinzhu/gorm"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 )
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -112,6 +114,9 @@ func (m *server) Read(ctx context.Context, in *pb.ReadBookRequest) (*pb.ReadBook
 	db = db.Where("amount > ?", 0)
 	res, err := pb.DefaultReadBook(ctx, &pb.Book{Id: in.GetId()}, db, in.Fields)
 	if err != nil {
+		if err == gorm.ErrRecordNotFound {
+			return nil, status.Errorf(codes.NotFound, "book not found")
+		}
 		return nil, err
 	}
 	out := &pb.ReadBookResponse{Result: res}
