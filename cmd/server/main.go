@@ -10,7 +10,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/example-app/pkg/pb"
+	"github.com/EvgenyMilev/example-app/pkg/pb"
 	"github.com/golang/protobuf/proto"
 	grpc_prometheus "github.com/grpc-ecosystem/go-grpc-prometheus"
 	"github.com/grpc-ecosystem/grpc-gateway/runtime"

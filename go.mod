@@ -1,4 +1,4 @@
-module github.com/example-app
+module github.com/EvgenyMilev/example-app
 
 go 1.16
 

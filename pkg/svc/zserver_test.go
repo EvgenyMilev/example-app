@@ -4,7 +4,7 @@ import (
 	"context"
 	"testing"
 
-	"github.com/example-app/pkg/pb"
+	"github.com/EvgenyMilev/example-app/pkg/pb"
 	"github.com/golang/protobuf/ptypes/empty"
 )
 

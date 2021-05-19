@@ -3,8 +3,8 @@ package main
 import (
 	"time"
 
-	"github.com/example-app/pkg/pb"
-	"github.com/example-app/pkg/svc"
+	"github.com/EvgenyMilev/example-app/pkg/pb"
+	"github.com/EvgenyMilev/example-app/pkg/svc"
 	grpc_middleware "github.com/grpc-ecosystem/go-grpc-middleware"
 	grpc_logrus "github.com/grpc-ecosystem/go-grpc-middleware/logging/logrus"
 	grpc_validator "github.com/grpc-ecosystem/go-grpc-middleware/validator"
