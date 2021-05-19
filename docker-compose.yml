@@ -5,8 +5,8 @@ services:
     container_name: example-app
     image: golang:1.14
     volumes:
-      - .:/go/src/github.com/example-app
-    working_dir: /go/src/github.com/example-app
+      - .:/go/src/github.com/EvgenyMilev/example-app
+    working_dir: /go/src/github.com/EvgenyMilev/example-app
     command: sh -c 'go build -o /go/bin/server ./cmd/server || exit; server;'
     ports:
       - 9090:9090

@@ -13,7 +13,7 @@ import "github.com/infobloxopen/protoc-gen-atlas-query-validate/options/query_va
 import "github.com/infobloxopen/protoc-gen-atlas-validate/options/atlas_validate.proto";
 
 
-option go_package = "github.com/example-app/pkg/pb;pb";
+option go_package = "github.com/EvgenyMilev/example-app/pkg/pb;pb";
 
 message Genre {
   option (gorm.opts) = {
